@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function App() {
-    const addTask = () => {
-
-    }
+    const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] =  useState(false)
 
   return (
     <div className="App">
@@ -14,17 +12,20 @@ function App() {
 
 
             <button className="btn btn-primary">Create Task</button>
+            {
+                isOpenCreateTaskForm &&
 
-            <form>
-                <div className="form-group">
+                <form>
+                    <div className="form-group">
 
-                    <label htmlFor="exampleInputEmail1">Task</label>
-                    <input type="text" className="form-control"/>
+                        <label htmlFor="exampleInputEmail1">Task</label>
+                        <input type="text" className="form-control"/>
                     </div>
 
 
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
+            }
 
 
             <div className="row">
