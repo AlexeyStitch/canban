@@ -9,9 +9,7 @@ function App() {
     }
 
     const onTaskChange = (e) => {
-        if(e.target.value.length > 3) {
-       setIsButtonTaskCreate(true)
-        }
+       setIsButtonTaskCreate(e.target.value.length > 4)
     }
 
   return (
