@@ -2,6 +2,17 @@ import React, {useState} from 'react';
 
 function App() {
     const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] =  useState(false)
+    const [isButtonTaskCreate, setIsButtonTaskCreate] = useState(false)
+
+    const isOpenForm = () => {
+        setIsOpenCreateTaskForm(true)
+    }
+
+    const onTaskChange = (e) => {
+        if(e.target.value.length > 3) {
+       setIsButtonTaskCreate(true)
+        }
+    }
 
   return (
     <div className="App">
@@ -11,7 +22,8 @@ function App() {
             <h1>Kanban</h1>
 
 
-            <button className="btn btn-primary">Create Task</button>
+            {!isOpenCreateTaskForm && <button className="btn btn-primary" onClick={isOpenForm}>Create Task</button> }
+
             {
                 isOpenCreateTaskForm &&
 
@@ -19,11 +31,11 @@ function App() {
                     <div className="form-group">
 
                         <label htmlFor="exampleInputEmail1">Task</label>
-                        <input type="text" className="form-control"/>
+                        <input type="text" className="form-control" onChange={onTaskChange}/>
                     </div>
 
 
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary" disabled={!isButtonTaskCreate}>Submit</button>
                 </form>
             }
 
