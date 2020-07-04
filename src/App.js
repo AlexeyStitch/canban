@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 function App() {
     const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] =  useState(false)
     const [isButtonTaskCreate, setIsButtonTaskCreate] = useState(false)
+    const [taskInput, setTaskInput] = useState('')
 
     const isOpenForm = () => {
         setIsOpenCreateTaskForm(true)
@@ -10,6 +11,19 @@ function App() {
 
     const onTaskChange = (e) => {
        setIsButtonTaskCreate(e.target.value.length > 4)
+        setTaskInput(e.target.value)
+    }
+
+    const taskSubmit = (e) => {
+        console.log(taskInput)
+        e.preventDefault();
+      taskReset();
+    }
+
+    const taskReset = () => {
+        setTaskInput('')
+        setIsOpenCreateTaskForm(false)
+        setIsButtonTaskCreate(false)
     }
 
   return (
@@ -29,11 +43,11 @@ function App() {
                     <div className="form-group">
 
                         <label htmlFor="exampleInputEmail1">Task</label>
-                        <input type="text" className="form-control" onChange={onTaskChange}/>
+                        <input type="text" className="form-control" onChange={onTaskChange} value={taskInput}/>
                     </div>
 
-
-                    <button type="submit" className="btn btn-primary" disabled={!isButtonTaskCreate}>Submit</button>
+                    <button type="submit" className="btn btn-primary" disabled={!isButtonTaskCreate} onClick={taskSubmit}>Submit</button>
+                    <button type="button" className="btn btn-secondary" onClick={taskReset}>Cancel</button>
                 </form>
             }
 
