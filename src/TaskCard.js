@@ -13,21 +13,41 @@ function TaskCard(props) {
 }
 
 export default TaskCard;
-dsd
-dsdsds
-gfgf
-gfggfgfqweqeqewqeqweqwewqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeqfdsss
 
 
+function TaskCard(props) {
 
 
-fsdf
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;
 
 
+function TaskCard(props) {
 
 
-fsdfsdfsdf
-fsdfdsfds
-fsdfdsfdsfsdfsdfds
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
 
-dsfsdfsd
+export default TaskCard;
+
+function TaskCard(props) {
+
+
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;

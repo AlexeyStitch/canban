@@ -15,16 +15,53 @@ function ColumnTask(props) {
 }
 
 export default ColumnTask;
-eqwwwwwww
 
 
+function TaskCard(props) {
 
 
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;
+
+function TaskCard(props) {
 
 
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
 
-eqwewqe
-qweqweqwe
-eqweqweqweqweqw
-eqweeeeeeeeeeeeeeeeeeeeeee
-weqweqwewqeqw
+export default TaskCard;
+
+
+function TaskCard(props) {
+
+
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;
+
+function TaskCard(props) {
+
+
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;

@@ -113,9 +113,3 @@ function App() {
 
 export default App;
 
-
-eqwe
-e
-qweqweqweeeeeeeeeeeeeeeeeeeeeeeeeee
-
-weqwewqeqweqweqw
