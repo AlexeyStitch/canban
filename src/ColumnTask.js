@@ -90,4 +90,16 @@ function TaskCard(props) {
 
 export default TaskCard;
 
+d
+function TaskCard(props) {
+
+
+  return (
+      <div>
+        {props.task.name}
+      </div>
+  );
+}
+
+export default TaskCard;
 
