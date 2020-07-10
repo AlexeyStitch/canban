@@ -1,30 +1,66 @@
 import React, {useState} from 'react';
+import ColumnTask from "./ColumnTask";
+
+const initialTasks = [
+    {
+        name: 'CreateF1',
+        priority: 10,
+        status: 'todo'
+    },
+    {
+        name: 'CreateF2',
+        priority: 20,
+        status: 'review'
+    },
+    {
+        name: 'CreateF3',
+        priority: 30,
+        status: 'done'
+    },
+    {
+        name: 'CreateF4',
+        priority: 40,
+        status: 'todo'
+    },
+    {
+        name: 'CreateF5',
+        priority: 50,
+        status: 'progress'
+    }
+]
 
 function App() {
-    const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] =  useState(false)
-    const [isButtonTaskCreate, setIsButtonTaskCreate] = useState(false)
-    const [taskInput, setTaskInput] = useState('')
 
-    const isOpenForm = () => {
+    const [tasks, setTasks] = useState(initialTasks);
+
+
+    const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] = useState(false)
+    const [isActiveFormButton, setIsActiveFormButton] = useState(false)
+
+    const [inputTask, setInputTask] = useState('')
+
+    const openCreateTask = () => {
         setIsOpenCreateTaskForm(true)
     }
 
-    const onTaskChange = (e) => {
-       setIsButtonTaskCreate(e.target.value.length > 4)
-        setTaskInput(e.target.value)
+    const taskChangeActive = (e) => {
+            setIsActiveFormButton(e.target.value.length > 4)
+        setInputTask(e.target.value)
     }
 
-    const taskSubmit = (e) => {
-        console.log(taskInput)
+    const submitTask = (e) => {
         e.preventDefault();
-      taskReset();
+        console.log(inputTask)
+        closeReset()
     }
 
-    const taskReset = () => {
-        setTaskInput('')
+    const closeReset = () => {
+        setInputTask('')
         setIsOpenCreateTaskForm(false)
-        setIsButtonTaskCreate(false)
+        setIsActiveFormButton(false)
     }
+
+
 
   return (
     <div className="App">
@@ -33,49 +69,46 @@ function App() {
         <div className="container">
             <h1>Kanban</h1>
 
-
-            {!isOpenCreateTaskForm && <button className="btn btn-primary" onClick={isOpenForm}>Create Task</button> }
-
+            {!isOpenCreateTaskForm && <button type="submit" className="btn btn-primary" onClick={openCreateTask}>CreateTask</button>}
             {
                 isOpenCreateTaskForm &&
-
                 <form>
                     <div className="form-group">
 
                         <label htmlFor="exampleInputEmail1">Task</label>
-                        <input type="text" className="form-control" onChange={onTaskChange} value={taskInput}/>
+                        <input type="text" className="form-control" onChange={taskChangeActive} value={inputTask}/>
                     </div>
-
-                    <button type="submit" className="btn btn-primary" disabled={!isButtonTaskCreate} onClick={taskSubmit}>Submit</button>
-                    <button type="button" className="btn btn-secondary" onClick={taskReset}>Cancel</button>
+                    <button type="submit" className="btn btn-primary" disabled={!isActiveFormButton} onClick={submitTask}>Submit</button>
+                    <button className="btn btn-secondary" onClick={closeReset}>Cancel</button>
                 </form>
             }
 
-
             <div className="row">
                 <div className="col-sm">
-                    To do
+                    Task
+                    <ColumnTask tasks={tasks} todo={'todo'}/>
                 </div>
 
                 <div className="col-sm">
                     In Progress
+                    <ColumnTask tasks={tasks} todo={'progress'}/>
                 </div>
 
                 <div className="col-sm">
                     Review
+                    <ColumnTask tasks={tasks} todo={'review'}/>
                 </div>
 
                 <div className="col-sm">
                     Done
+                    <ColumnTask tasks={tasks} todo={'done'}/>
                 </div>
 
             </div>
         </div>
 
-dsaddsadsadsaasdas 6565 6
     </div>
   );
 }
 
 export default App;
-dasdsdsa d dassddaa
